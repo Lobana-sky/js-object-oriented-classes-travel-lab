@@ -31,18 +31,17 @@ let eastWest = [
   'Madison Avenue',
   '5th Avenue'
 ];
+
 class Route{
   constructor(beginningLocation ,endingLocation){
     this.beginningLocation=beginningLocation;
      this.endingLocation=endingLocation;
   }
   blocksTravelled(eastWest){
-    if(this.beginningLocation.vertical!=this.endingLocation.vertical){
-      return Math.abs(this.beginningLocation.vertical-this.endingLocation.vertical)
-    }
-    else{
-   return Math.abs(eastWest.indexOf(this.beginningLocation.horizontal)-eastWest.indexOf(this.endingLocation.horizontal))
-    }
+   return Math.abs(this.beginningLocation.vertical-this.endingLocation.vertical)+Math.abs(eastWest.indexOf(this.beginningLocation.horizontal)-eastWest.indexOf(this.endingLocation.horizontal))
+  }
+  estimatedTime(){
+    
   }
 }
 //   let route = new Route(
@@ -51,7 +50,8 @@ class Route{
 //       );
 let route = new Route(
         { horizontal: '1st Avenue', vertical: '34' },
-        { horizontal: 'Park', vertical: '34' }
+        { horizontal: 'Park', vertical: '30' }
       );
 console.log(route);
 route.blocksTravelled(eastWest)
+
